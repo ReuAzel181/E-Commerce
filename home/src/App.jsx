@@ -3,12 +3,16 @@ import ReactDOM from "react-dom/client";
 
 import "./index.scss";
 
+import Footer from "./Footer";
+import Header from "./Header";
+
 const App = () => (
-  <div className="mt-10 text-3xl mx-auto max-w-6xl">
-    <div>Name: home</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Tailwind</div>
+  <div className="text-3xl mx-auto max-w-6xl">
+    <Header app={{name: "home"}} />
+      <div className="my-10">
+        Home Page Content
+      </div>
+    <Footer />
   </div>
 );
 const rootElement = document.getElementById("app")
