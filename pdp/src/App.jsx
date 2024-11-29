@@ -1,14 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.scss";
 
-import Header from "home/Header";
+import "./index.scss";
+import SafeComponent from "./SafeComponent";
+
 import Footer from "home/Footer";
+import Header from "home/Header";
+
 
 const App = () => (
   <div className="text-3xl mx-auto max-w-6xl">
-    <Header />
+    <SafeComponent>
+      <Header />
+    </SafeComponent>
       <div className="my-10">
         PDP Page Content
       </div>
