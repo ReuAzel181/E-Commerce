@@ -47,7 +47,7 @@ module.exports = (_, argv) => ({
         },
       },
       {
-        test: /\.(css|s[ac]ss)$/i,
+        test: /\.(png|css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
@@ -64,11 +64,14 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "home",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        pdp: "pdp@http://localhost:3001/remoteEntry.js", 
+      },
       exposes: {
         "./HomeContent" : "./src/HomeContent",
         "./Header" : "./src/Header",
         "./Footer" : "./src/Footer",
+        "./products" : "./src/products.js"
       },
       shared: {
         ...deps,

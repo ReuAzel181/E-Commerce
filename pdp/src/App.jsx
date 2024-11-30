@@ -4,11 +4,9 @@ import ReactDOM from "react-dom/client";
 
 import "./index.scss";
 import SafeComponent from "./SafeComponent";
-
+import PDPContent from "./PDPContent"
 import Footer from "home/Footer";
 import Header from "home/Header";
-import HomeContent from "home/HomeContent";
-
 
 const App = () => (
   <div className="container-main">
@@ -16,7 +14,7 @@ const App = () => (
       <Header/>
     </SafeComponent>
     <div className="my-10">
-      <HomeContent />
+      <PDPContent />
     </div>
     <Footer />
   </div>

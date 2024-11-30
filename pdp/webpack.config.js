@@ -67,7 +67,9 @@ module.exports = (_, argv) => ({
       remotes: {
         home: "home@http://localhost:3000/remoteEntry.js",
       },
-      exposes: {},
+      exposes: {
+        "./PDPContent": "./src/PDPContent",
+      },
       shared: {
         ...deps,
         react: {
