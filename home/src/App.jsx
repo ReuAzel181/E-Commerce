@@ -5,12 +5,13 @@ import "./index.scss";
 
 import Footer from "./Footer";
 import Header from "./Header";
+import HomeContent from "./HomeContent";
 
 const App = () => (
   <div className="text-3xl mx-auto max-w-6xl">
     <Header />
       <div className="my-10">
-        Home Page Content
+        <HomeContent />
       </div>
     <Footer />
   </div>

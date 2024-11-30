@@ -18,6 +18,8 @@ import { UsersService } from './users/users.service';
     AuthorizedModule,
     ProductsModule,
     AuthModule,
+  
   ],
+  
 })
 export class AppModule {}
