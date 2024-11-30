@@ -10,11 +10,17 @@ export default function HomeContent() {
             getProducts().then(setProducts);
 
       }, []); // dependency array is empty to run only once 
-
-      return <div className="grid grid-cols-4 gap-5">
+      return <div className="home-content">
             {products.map((product) => (
-                  <div key={product.id}>
-                        <img src={product.image} alt={product.name} />
+                  <div key={product.id} className="product-container">
+                        <div className="flex">
+                              <img src={product.image} alt={product.name} className="product-image"/>
+                        </div>
+                        <div className="flex" style={{ width: '100%' }}>
+                              <div className="prod-name">
+                                    <a>{product.name}</a>
+                              </div>
+                        </div>
                   </div>
             ))}
       </div>

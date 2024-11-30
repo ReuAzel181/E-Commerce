@@ -11,9 +11,9 @@ import HomeContent from "home/HomeContent";
 
 
 const App = () => (
-  <div className="text-3xl mx-auto max-w-6xl">
+  <div className="container-main">
     <SafeComponent>
-      <Header className="header-styling"/>
+      <Header/>
     </SafeComponent>
     <div className="my-10">
       <HomeContent />
