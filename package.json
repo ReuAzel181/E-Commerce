@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@nestjs/common": "^10.4.12",
+    "tailwindcss": "^3.4.15"
+  }
+}

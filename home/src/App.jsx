@@ -8,7 +8,7 @@ import Header from "./Header";
 import HomeContent from "./HomeContent";
 
 const App = () => (
-  <div className="text-3xl mx-auto max-w-6xl">
+  <div className="container-main">
     <Header />
       <div className="my-10">
         <HomeContent />

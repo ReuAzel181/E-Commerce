@@ -5,3 +5,27 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.container-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  display: flex;
+  top: 0;
+  background-color: #3b82f6; 
+  color: white; 
+  font-size: 1.875rem; 
+  font-weight: bold; 
+  padding: 10px;
+  height: 70px;
+  width: 100%;
+}
+
+.header-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -7,16 +7,17 @@ import SafeComponent from "./SafeComponent";
 
 import Footer from "home/Footer";
 import Header from "home/Header";
+import HomeContent from "home/HomeContent";
 
 
 const App = () => (
   <div className="text-3xl mx-auto max-w-6xl">
     <SafeComponent>
-      <Header />
+      <Header className="header-styling"/>
     </SafeComponent>
-      <div className="my-10">
-        PDP Page Content
-      </div>
+    <div className="my-10">
+      <HomeContent />
+    </div>
     <Footer />
   </div>
 );
