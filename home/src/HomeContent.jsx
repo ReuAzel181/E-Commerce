@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import {getProducts, currency} from "./products";
+import { getProducts } from "./products";
+
+import { currency } from "./products";
+
 
 //Home Content Component
 export default function HomeContent() {
@@ -15,6 +18,17 @@ export default function HomeContent() {
             {products.map((product) => (
                   <div key={product.id}>
                         <img src={product.image} alt={product.name} />
+                        <div className="flex">
+                              <div className="flex-grow font-bold">
+                                    <a>{product.name}</a>
+                              </div>
+                              <div className="flex-end">
+                              {currency.format(product.price)}
+                              </div>
+                              <div className="text-sm mt-5">
+                                    {product.description}
+                              </div>
+                        </div>
                   </div>
             ))}
       </div>

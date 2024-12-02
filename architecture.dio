@@ -1,6 +1,12 @@
 <mxfile host="65bd71144e">
     <diagram id="ymmja9ckZL2JC5WrAsIF" name="NPM">
+
         <mxGraphModel dx="557" dy="430" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+
+        <mxGraphModel dx="540" dy="292" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+
+        <mxGraphModel dx="727" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -57,7 +63,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="uBN4znvPZEgIXOu547lq" name="Asset Store">
-        <mxGraphModel dx="538" dy="506" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="771" dy="417" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -138,7 +144,13 @@
         </mxGraphModel>
     </diagram>
     <diagram id="rV-rswbbH2CDzzyXmPbc" name="Module Federation">
+
         <mxGraphModel dx="557" dy="430" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+
+
+        <mxGraphModel dx="213" dy="292" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+
+
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
