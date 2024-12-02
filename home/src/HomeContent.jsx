@@ -14,16 +14,18 @@ export default function HomeContent() {
 
       }, []); // dependency array is empty to run only once 
 
-      return <div className="grid grid-cols-4 gap-5">
+      return <div className="grid grid-cols-3 gap-10">
             {products.map((product) => (
                   <div key={product.id}>
                         <img src={product.image} alt={product.name} />
-                        <div className="flex">
-                              <div className="flex-grow font-bold">
+                        <div className="flex flex-col">
+                              <div className="flex">
+                              <div className="inline-block font-bold whitespace-nowrap">
                                     <a>{product.name}</a>
                               </div>
-                              <div className="flex-end">
+                              <div className="inline-block ml-5 font-bold">
                               {currency.format(product.price)}
+                              </div>
                               </div>
                               <div className="text-sm mt-5">
                                     {product.description}

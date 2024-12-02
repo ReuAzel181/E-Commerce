@@ -3,8 +3,13 @@ import "./index.scss";
 
 export default function Header() {
       return (
-            <div className="p-5 bg-blue-500 text-white text-3xl font-bold">
+            <div className="header">
+            <div className="logo">
+                  <img src="http://localhost:8080/logo.png" alt="Fidget Spinner World" />
+            </div>
+            <div className="header-text">
                   Fidget Spinner World
             </div>
+      </div>
       );
 }

@@ -1,3 +1,5 @@
+export const logo = 'http://localhost:8080/logo.png';
+
 export interface Product {
       id: number;
       name: string;
@@ -16,7 +18,8 @@ export interface Product {
         image: 'http://localhost:8080/fidget-1.jpg',
         longDescription:
           'Our Wheel Spinner is fun, functional, and maybe just a little bit strange. It allows you to spin your wheels with ease-- making it great for stress relief or just entertainment. This fidget spinner is handcrafted using brass and then plated in gold or rose gold to ensure the finest quality spinning action, making it the best way to get your wheels moving.',
-      },
+      
+        },
       {
         id: 2,
         name: 'Solid Rainbow',
