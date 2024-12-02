@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import HomeContent from "home/HomeContent"; 
 import { currency } from "home/products"; 
+import { getProductById } from "home/products";
+
 
 export default function PDPContent() {
   const [selectedProduct, setSelectedProduct] = useState(null); 
