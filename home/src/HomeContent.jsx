@@ -18,7 +18,7 @@ export default function HomeContent({ onProductClick }) {
           </div>
           <div className="flex" style={{ width: "100%" }}>
             <div className="prod-name">
-              <a>{product.name}</a>
+              <a>{product.name}</a>   
             </div>
           </div>
         </div>

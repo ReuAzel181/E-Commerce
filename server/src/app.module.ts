@@ -15,13 +15,11 @@ import { MiddlewareBuilder } from '@nestjs/core';
   providers: [UsersService],
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
+      rootPath: join(__dirname, '..',  'public'),
     }),
     AuthorizedModule,
     ProductsModule,
     AuthModule,
-  
   ],
-  
 })
 export class AppModule {}
