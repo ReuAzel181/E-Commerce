@@ -15,8 +15,9 @@ import { MiddlewareBuilder } from '@nestjs/core';
   providers: [UsersService],
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..',  'public'),
-      serveRoot: '/', 
+      rootPath: join(__dirname, '..', 'public'),
+      serveRoot: '/',
+      exclude: ['/api/*', '/auth/*', '/cart'], // Exclude '/cart' here
     }),
     CartModule,
     ProductsModule,

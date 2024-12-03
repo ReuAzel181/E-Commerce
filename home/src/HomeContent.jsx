@@ -16,13 +16,9 @@ export default function HomeContent({ onProductClick }) {
           <div className="flex">
             <img src={product.image} alt={product.name} className="product-image" />
           </div>
-          <div className="flex" style={{ width: "100%" }}>
-            <div className="prod-name">
-              <a>{product.name}</a>
-            </div>
-            <div className="flex-end"> {currency.format(product.price)} </div>
-          </div>
-          <div  className="text-sm">  {product.description}  </div>
+            <div className="product-name"><a>{product.name}</a></div>
+            <div className="product-price"> {currency.format(product.price)} </div>   
+            <div  className="product-description">  {product.description}  </div>
         </div>
       ))}
     </div>

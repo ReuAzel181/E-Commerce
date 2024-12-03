@@ -9,15 +9,15 @@ const printCompilationMessage = require('./compilation.config.js');
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:3002/",
   },
 
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    extensions: [".jsx", ".js"],
   },
 
   devServer: {
-    port: 3000,
+    port: 3002,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -47,7 +47,7 @@ module.exports = (_, argv) => ({
         },
       },
       {
-        test: /\.(png|css|s[ac]ss)$/i,
+        test: /\.(css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
@@ -56,12 +56,8 @@ module.exports = (_, argv) => ({
         use: {
           loader: "babel-loader",
           options: {
-            presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
-            ]
-          }
+            presets: ["@babel/preset-env", "@babel/preset-react"], // Ensure Babel handles JSX and modern JS
+          },
         },
       },
     ],
@@ -69,17 +65,14 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "home",
+      name: "cart",
       filename: "remoteEntry.js",
       remotes: {
+        home: "home@http://localhost:3000/remoteEntry.js",
         pdp: "pdp@http://localhost:3001/remoteEntry.js",
+        cart: "cart@http://localhost:3002/remoteEntry.js",
       },
-      exposes: {
-        "./HomeContent" : "./src/HomeContent",
-        "./Header" : "./src/Header.jsx",
-        "./Footer" : "./src/Footer.jsx",
-        "./products" : "./src/products.js"
-      },
+      exposes: {},
       shared: {
         ...deps,
         react: {
