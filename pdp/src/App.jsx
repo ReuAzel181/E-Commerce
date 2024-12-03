@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 
 import "./index.scss";
 import SafeComponent from "./SafeComponent";
-import HomeContent from "home/HomeContent"; 
 import PDPContent from "./PDPContent"
 import Footer from "home/Footer";
 import Header from "home/Header";

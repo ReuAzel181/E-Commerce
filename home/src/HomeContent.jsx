@@ -18,9 +18,11 @@ export default function HomeContent({ onProductClick }) {
           </div>
           <div className="flex" style={{ width: "100%" }}>
             <div className="prod-name">
-              <a>{product.name}</a>   
+              <a>{product.name}</a>
             </div>
+            <div className="flex-end"> {currency.format(product.price)} </div>
           </div>
+          <div  className="text-sm">  {product.description}  </div>
         </div>
       ))}
     </div>
