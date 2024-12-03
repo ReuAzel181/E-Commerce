@@ -1,10 +1,10 @@
 {
-  "name": "home",
+  "name": "cart",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build:start": "cd dist && PORT=3000 npx serve",
+    "build:start": "cd dist && PORT=3002 npx serve",
     "start": "webpack serve --mode development",
     "start:live": "webpack serve --mode development --live-reload --hot"
   },
@@ -35,7 +35,7 @@
     "@babel/runtime": "^7.13.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^7.0.1",
-    "remixicon": "^4.5.0"
+    "remixicon": "^4.5.0",
+    "rxjs": "^7.8.1"
   }
 }

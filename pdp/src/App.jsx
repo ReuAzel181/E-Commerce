@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";  
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";  
+import "remixicon/fonts/remixicon.css";
+
 
 import "./index.scss";
 
@@ -15,14 +17,15 @@ const App = () => (
   <div className="text-3xl mx-auto max-w-6xl">
       <Header />
       <div className="my-10">
-        <Switch>
-          <Route path="/product/:id" component={PDPContent} />  
-        </Switch>
+        <Routes>
+          <Route path="/product/:id" element= { <PDPContent/> } />  
+        </Routes>
       </div>
     <Footer />
   </div>
-  </Router>
+ </Router>
 );
+
 const rootElement = document.getElementById("app")
 if (!rootElement) throw new Error("Failed to find the root element")
 
