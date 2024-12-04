@@ -4,26 +4,54 @@ import { BehaviorSubject } from 'rxjs';
 const API_SERVER = 'http://localhost:8080';
 
 export const jwt = new BehaviorSubject(null);
-export const cart = new BehaviorSubject([]);
+export const cart = new BehaviorSubject(null);
 
-export const getCart = () =>
-    fetch(`${API_SERVER}/cart`, {
-        header: {
+export const login = (username, password) => 
+    fetch(`${API_SERVER}/auth/login`, {
+        method: 'POST',
+        headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${jwt.value}`,
+        },
+        body: JSON.stringify({ username, password }),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        jwt.next(data.access_token);
+        getCart();
+        return data.access_token;
+    });
+
+
+export const getCart = () => {
+    const token = jwt.value;
+    if (!token) {
+        throw new Error("No JWT token available");
+    }
+
+    return fetch(`${API_SERVER}/cart`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         }
     })
-        .then((res) => res.json())
-        .then((res) => {
-            cart.next(res);
-            return res;
-        });
+    .then((res) => {
+        if (!res.ok) {
+            throw new Error("Failed to fetch cart");
+        }
+        return res.json();
+    })
+    .then((data) => {
+        cart.next(data);
+        return data;
+    });
+};
         
 export const addToCart = (id) =>
     fetch(`${API_SERVER}/cart`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${jwt.value}`,
         },
         body: JSON.stringify({ id }),
@@ -47,20 +75,6 @@ export const clearCart = () =>
         });
 
 
-export const login = (username, password) => 
-    fetch(`${API_SERVER}/auth/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        jwt.next(data.access_token);
-        getCart();
-        return data.access_token;
-    });
 
     export function usedLoggedIn() {
         const [loggedIn, setLoggedIn] = useState(!!jwt.value);
