@@ -1,22 +1,35 @@
-import { createEffect, createSignal, Show } from "solid-js";
+import React, { useEffect, useState } from "react";
 import { jwt, addToCart } from "cart/cart";
 
-export default ({ id }) => {
-    const [loggedIn, setLoggedIn] = createSignal(false);
+const AddToCart = ({ id }) => {
+    const [loggedIn, setLoggedIn] = useState(false);
+    
+    // useEffect(() => {
+    //     const subscription = jwt.subscribe((jwt) => {
+    //     setLoggedIn(!!jwt);
+    //     });
+    //     return () => subscription.unsubscribe();
+    // }, []);
 
-    createEffect(() => {
-        return jwt.subscribe((jwt) => {
-            setLoggedIn(!!jwt);
+    useEffect(() => {
+        const subscription = jwt.subscribe((jwtToken) => {
+            setLoggedIn(!!jwtToken);
         });
-    });
+        return () => {
+            subscription.unsubscribe();
+        };
+    }, []);
 
     return (
-        <Show when={loggedIn()}>
-            <button onClick={() => addToCart(id)}
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Add to Cart
-            </button>
-        </Show>
+        loggedIn && (
+        <button
+            onClick={() => addToCart(id)}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+            Add to Cart
+        </button>
+        )
     );
 };
 
+export default AddToCart;

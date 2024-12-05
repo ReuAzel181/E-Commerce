@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { login, usedLoggedIn } from "./cart";
+import { login, useLoggedIn } from "./cart";
 
 export default function Login() {
-    const loggedIn = usedLoggedIn();
+    const loggedIn = useLoggedIn();
     const [showLogin, setShowLogin] = useState(false);
 
     const [username, setUsername] = useState("sally");

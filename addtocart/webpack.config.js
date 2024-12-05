@@ -71,8 +71,8 @@ module.exports = (_, argv) => ({
         addtocart: "addtocart@http://localhost:3003/remoteEntry.js",
       },
       exposes: {
-        "./AddToCart": "./src/AddToCart",
-        "./placeAddToCart": "./src/placeAddToCart",
+        "./AddToCart": "./src/AddToCart.jsx",
+        "./placeAddToCart": "./src/placeAddToCart.jsx",
       },
       shared: {
         ...deps,

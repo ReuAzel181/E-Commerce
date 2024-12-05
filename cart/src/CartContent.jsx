@@ -6,10 +6,17 @@ import { currency } from "home/products";
 export default function CartContent() {
     const [items, setItems] = useState([]);
 
-    useEffect( () => {
-        cart.subscribe((value) => setItems(value?.cartItems ?? [])),   
-        []
-    });
+    // Eto yung nasa tuts
+    // useEffect( () => {
+    //     cart.subscribe((value) => setItems(value?.cartItems ?? [])),   
+    //     []
+    // });
+
+    useEffect(() => {
+        const subscription = cart.subscribe((value) => setItems(value?.cartItems ?? []));
+        return () => subscription.unsubscribe();
+    }, []);
+
 
     return (
         <div className="flex">

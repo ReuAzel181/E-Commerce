@@ -78,10 +78,10 @@ module.exports = (_, argv) => ({
         addtocart: "addtocart@http://localhost:3003/remoteEntry.js",
       },
       exposes: {
-        "./HomeContent" : "./src/HomeContent",
         "./Header" : "./src/Header.jsx",
         "./Footer" : "./src/Footer.jsx",
-        "./products" : "./src/products.js"
+        "./products" : "./src/products.js",
+        "./HomeContent" : "./src/HomeContent.jsx",
       },
       shared: {
         ...deps,

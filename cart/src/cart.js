@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { BehaviorSubject } from 'rxjs';
 
@@ -7,6 +8,7 @@ export const jwt = new BehaviorSubject(null);
 export const cart = new BehaviorSubject(null);
 
 export const login = (username, password) => 
+    
     fetch(`${API_SERVER}/auth/login`, {
         method: 'POST',
         headers: {
@@ -74,15 +76,14 @@ export const clearCart = () =>
             getCart();
         });
 
-
-
-    export function usedLoggedIn() {
+    export function useLoggedIn() {
         const [loggedIn, setLoggedIn] = useState(!!jwt.value);
         useEffect(() => {
         setLoggedIn(!!jwt.value);
-        return jwt.subscribe((c) => {
+        // return jwt.subscribe(() => {
+        return jwt.subscribe(() => {
             setLoggedIn(!!jwt.value);
         });
     },[]);
-        return loggedIn;
+    return loggedIn;
     }
