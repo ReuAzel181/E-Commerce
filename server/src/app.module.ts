@@ -4,7 +4,7 @@ import { join } from 'path';
 
 import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
-import { AuthorizedModule } from './modules/authorized/authorized.module';
+import { CartModule } from './modules/cart/cart.module';
 import { ProductsModule } from './modules/products/products.module';
 import { UsersService } from './users/users.service';
 
@@ -15,7 +15,7 @@ import { UsersService } from './users/users.service';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
-    AuthorizedModule,
+    CartModule,
     ProductsModule,
     AuthModule,
   
