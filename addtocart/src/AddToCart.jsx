@@ -4,17 +4,19 @@ import { jwt, addToCart } from "cart/cart";
 export default function AddToCart({ id }) {
     const [loggedIn, setLoggedIn] = useState(false);
 
-    createEffect(() => {
+    useEffect(() => {
         const subscription = jwt.subscribe((jwtToken) => {
+            console.log("JWT token:", jwtToken);
             setLoggedIn(!!jwtToken);
         });
-
+    
         return () => {
             if (subscription && typeof subscription.unsubscribe === 'function') {
                 subscription.unsubscribe();
             }
         };
     }, []);
+    
 
     return (
         <div>

@@ -57,8 +57,12 @@ module.exports = (_, argv) => ({
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"], // Ensure Babel handles JSX and modern JS
-          },
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ]
+          }
         },
       },
     ],

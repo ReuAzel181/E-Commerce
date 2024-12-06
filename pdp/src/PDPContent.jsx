@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import HomeContent from "home/HomeContent"; 
 import { useParams } from "react-router-dom";
 import { getProductById, currency } from "home/products";
-import placeAddToCart from "addtocart/placeAddToCart";
+//import placeAddToCart from "addtocart/placeAddToCart";
 import { addToCart } from "../../cart/src/cart";
 
 export default function PDPContent() {
@@ -20,11 +20,11 @@ export default function PDPContent() {
 
   const addToCart = useRef(null);
 
-  useEffect (() => {
-    if (addToCart.current) {
-      placeAddToCart(addToCart.current, product.id);
-    }
-  }, [product]);
+  // useEffect (() => {
+  //   if (addToCart.current) {
+  //     placeAddToCart(addToCart.current, product.id);
+  //   }
+  // }, [product]);
 
   if (!product) { return null;}
 

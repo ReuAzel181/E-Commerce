@@ -18,9 +18,12 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3000,
-    hot: false,
+    hot: true,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
+    client: {
+      overlay: false,
+    },
     onListening: function (devServer) {
       const port = devServer.server.address().port
 
@@ -35,7 +38,8 @@ module.exports = (_, argv) => ({
           }
         })
       })
-    }
+    },
+
   },
 
   devtool: argv.mode === 'development' ? 'source-map' : false,

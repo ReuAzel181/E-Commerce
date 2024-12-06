@@ -31,7 +31,6 @@ class ErrorBoundary extends React.Component {
 export default function Header() {
       
       return (
-
             <div className="flex" style={{ width: "100%", justifyContent: "space-between" }}>
                   <div className="header">
                         <div className="logo"><img src="http://localhost:8080/logo.png" alt="Fidget Spinner World" /></div>
@@ -40,6 +39,5 @@ export default function Header() {
                         <div className="flex-end">  <ErrorBoundary> <MiniCart />  </ErrorBoundary> <ErrorBoundary> <Login /> </ErrorBoundary></div>
                   </div>
             </div>
-            
-      );
+      ); 
 }

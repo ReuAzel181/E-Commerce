@@ -6,6 +6,7 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 
 const printCompilationMessage = require('./compilation.config.js');
+//const { default: placeAddToCart } = require("./src/placeAddToCart.jsx");
 
 module.exports = (_, argv) => ({
   output: {
@@ -18,12 +19,17 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3003,
-    hot: false,
+    hot: true, // Enable hot reloading
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
+    client: {
+      overlay: {
+        warnings: true,
+        errors: true,
+      },
+    },
     onListening: function (devServer) {
       const port = devServer.server.address().port
-
       printCompilationMessage('compiling', port)
 
       devServer.compiler.hooks.done.tap('OutputMessagePlugin', (stats) => {
@@ -35,8 +41,10 @@ module.exports = (_, argv) => ({
           }
         })
       })
-    }
+    },
   },
+
+  devtool: argv.mode === 'development' ? 'source-map' : false,
 
   module: {
     rules: [
@@ -48,7 +56,7 @@ module.exports = (_, argv) => ({
         },
       },
       {
-        test: /\.(css|s[ac]ss)$/i,
+        test: /\.(png|css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
@@ -56,6 +64,13 @@ module.exports = (_, argv) => ({
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ]
+          }
         },
       },
     ],
@@ -66,14 +81,14 @@ module.exports = (_, argv) => ({
       name: "addtocart",
       filename: "remoteEntry.js",
       remotes: {
-        home: "home@http://localhost:3000/remoteEntry.js",
         pdp: "pdp@http://localhost:3001/remoteEntry.js",
+        home: "home@http://localhost:3000/remoteEntry.js",
         cart: "cart@http://localhost:3002/remoteEntry.js",
         addtocart: "addtocart@http://localhost:3003/remoteEntry.js",
       },
       exposes: {
-        "./AddToCart": "./src/AddToCart.jsx",
-        "./placeAddToCart": "./src/placeAddToCart.jsx",
+        "./AddToCart": "./src/AddToCart",
+
       },
       shared: {
         ...deps,
