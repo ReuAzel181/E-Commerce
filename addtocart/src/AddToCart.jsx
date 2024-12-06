@@ -1,35 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { jwt, addToCart } from "cart/cart";
 
-const AddToCart = ({ id }) => {
+export default function AddToCart({ id }) {
     const [loggedIn, setLoggedIn] = useState(false);
-    
-    // useEffect(() => {
-    //     const subscription = jwt.subscribe((jwt) => {
-    //     setLoggedIn(!!jwt);
-    //     });
-    //     return () => subscription.unsubscribe();
-    // }, []);
 
-    useEffect(() => {
+    createEffect(() => {
         const subscription = jwt.subscribe((jwtToken) => {
             setLoggedIn(!!jwtToken);
         });
+
         return () => {
-            subscription.unsubscribe();
+            if (subscription && typeof subscription.unsubscribe === 'function') {
+                subscription.unsubscribe();
+            }
         };
     }, []);
 
     return (
-        loggedIn && (
-        <button
-            onClick={() => addToCart(id)}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-            Add to Cart
-        </button>
-        )
+        <div>
+            {loggedIn ? (
+                <button onClick={() => addToCart(id)}>Add to Cart</button>
+            ) : (
+                <button disabled>Please log in to add to cart</button>
+            )}
+        </div>
     );
-};
-
-export default AddToCart;
+}

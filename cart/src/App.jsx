@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-//import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import "remixicon/fonts/remixicon.css";
 import "./index.scss";
@@ -9,6 +9,7 @@ import Header from "home/Header";
 import CartContent from "./CartContent";
 
 const App = () => (
+  <Router>
     <div className="container-main">
       <Header />
       <div className="my-10">
@@ -16,6 +17,8 @@ const App = () => (
       </div>
       <Footer />
     </div>
+  </Router>
+
 );
 
 const rootElement = document.getElementById("app");

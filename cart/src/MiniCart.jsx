@@ -4,16 +4,33 @@ import { currency } from "home/products";
 import "./index.scss";
 
 
+
 export default function MiniCart() {
     const [items, setItems] = useState(undefined);
     const [showCart, setShowCart] = useState(false);
 
+    // useEffect(() => {
+    //     setItems(cart.value?.cartItems);
+    //     return cart.subscribe((c) => {
+    //         setItems(c?.cartItems);
+    //     });
+    // }, []);
+
     useEffect(() => {
         setItems(cart.value?.cartItems);
-        return cart.subscribe((c) => {
+    
+        const unsubscribe = cart.subscribe((c) => {
             setItems(c?.cartItems);
         });
-    }, []);
+    
+        return () => {
+            if (typeof unsubscribe === "function") {
+                unsubscribe(); 
+            }
+        };
+    }, []); 
+    
+    
 
     if (!items) {
         console.log("No items in the cart");

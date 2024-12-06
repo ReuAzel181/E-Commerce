@@ -45,6 +45,17 @@ export class CartController {
     }
 
 
+  // @Delete()
+  // @UseGuards(JwtAuthGuard)
+  // async destroy(@Request() req, @Body() { id }: { id: string }): Promise<Cart> {
+  //   const cart = this.carts[req.user.userId];
+  
+  //   // Find and remove the item with the specified ID
+  //   cart.cartItems = cart.cartItems.filter((item) => item.id !== parseInt(id));
+  
+  //   return cart;
+  // }
+
   @Delete()
   @UseGuards(JwtAuthGuard)
     async destroy(@Request() req): Promise <Cart> {

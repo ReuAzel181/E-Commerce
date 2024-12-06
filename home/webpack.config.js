@@ -18,6 +18,7 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3000,
+    hot: false,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -36,6 +37,8 @@ module.exports = (_, argv) => ({
       })
     }
   },
+
+  devtool: argv.mode === 'development' ? 'source-map' : false,
 
   module: {
     rules: [
@@ -82,16 +85,19 @@ module.exports = (_, argv) => ({
         "./Footer" : "./src/Footer.jsx",
         "./products" : "./src/products.js",
         "./HomeContent" : "./src/HomeContent.jsx",
+        "./MainLayout": "./src/MainLayout.jsx",
       },
       shared: {
         ...deps,
         react: {
           singleton: true,
+          strictVersion: true,
           requiredVersion: deps.react,
         },
-        "react-dom": {
+        "react-router-dom": {
           singleton: true,
-          requiredVersion: deps["react-dom"],
+          strictVersion: true,
+          requiredVersion: deps["react-router-dom"],
         },
       },
     }),

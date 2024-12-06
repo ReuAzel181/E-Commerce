@@ -18,6 +18,7 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3002,
+    hot: false,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -84,11 +85,13 @@ module.exports = (_, argv) => ({
         ...deps,
         react: {
           singleton: true,
+          strictVersion: true,
           requiredVersion: deps.react,
         },
-        "react-dom": {
+        "react-router-dom": {
           singleton: true,
-          requiredVersion: deps["react-dom"],
+          strictVersion: true,
+          requiredVersion: deps["react-router-dom"],
         },
       },
     }),
