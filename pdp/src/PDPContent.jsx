@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import{useParams} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import { getProductById, currency } from "home/products";
+import { currency, getProductById } from "home/products";
 
 
 
