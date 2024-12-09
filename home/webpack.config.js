@@ -54,7 +54,7 @@ module.exports = (_, argv) => ({
         },
       },
       {
-        test: /\.(png|css|s[ac]ss)$/i,
+        test: /\.(scss|png|css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {

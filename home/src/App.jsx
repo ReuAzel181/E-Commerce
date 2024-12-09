@@ -9,7 +9,7 @@ import MainLayout from "home/MainLayout";
 // Get the root DOM element
 const rootElement = document.getElementById("app");
 if (!rootElement) {
-  throw new Error("Failed to find the root element");
+    throw new Error("Failed to find the root element");
 }
 
 // Create a React root (React 18 API)

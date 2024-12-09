@@ -80,6 +80,7 @@ module.exports = (_, argv) => ({
       },
       exposes: {
         "./PDPContent": "./src/PDPContent.jsx",
+        './index.scss': './src/index.scss',
       },
       shared: {
         ...deps,

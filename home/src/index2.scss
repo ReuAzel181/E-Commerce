@@ -1,0 +1,130 @@
+.my-10 {
+    flex: 1;
+}
+
+.background-container {
+    position: fixed; 
+    top: 0;
+    right: 0;
+    width: 100%; 
+    height: 100%; 
+    z-index: -1; 
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-start; 
+}
+
+.background-container2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: auto; 
+    height: auto;
+    z-index: -2;
+}
+
+.footer-credit {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px
+}
+
+.foot-banner {
+    
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;   
+}
+
+.name-credit {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-link {
+    flex: 1;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    color: #2e2e2e !important;
+}
+
+.product-bg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+    height: 250px; /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+.gradient-1 {
+    background: radial-gradient(circle, rgba(77, 133, 223, 0) 0%, #A1CDEF 100%);
+}
+
+.gradient-2 {
+    background: radial-gradient(circle, rgba(255, 0, 0, 0) 0%, #A9A1EF 100%);
+}
+
+.gradient-3 {
+    background: radial-gradient(circle, rgba(0, 255, 0, 0) 0%, #A1EFEB 100%);
+}
+
+.gradient-4 {
+    background: radial-gradient(circle, rgba(0, 0, 255, 0) 0%, #A1CDEF 100%);
+}
+
+
+.flex-end {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-box {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 180px;
+    gap: 10px;
+    right: 90px;
+    width: 200px;
+    height: 100px;
+    background-color: #202A36; /* Adjust as needed */
+    border-radius: 20px; /* Adjust as needed */
+    padding: 10px; /* Adjust as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust as needed */
+    z-index: 1000; /* Ensure it is above other elements */
+}
+
+.chat-box .chat-text {
+    color: white;
+    font-size: 2rem;
+}
+
+.overlay-bar {
+    position: relative;
+    top: 0; /* Position it at the top of the container */
+    left: 0;
+    width: 100%; /* Ensure it spans the full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust as needed */
+    color: white;
+    padding: 10px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

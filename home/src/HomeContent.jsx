@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getProducts, currency } from "./products";
 import { addToCart, useLoggedIn } from "cart/cart";
-import { useNavigate } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+// import 'pdp/index.scss';
 
 // Home Content Component
 export default function HomeContent({ onProductClick }) {
@@ -9,6 +10,7 @@ export default function HomeContent({ onProductClick }) {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const gradientClasses = ['gradient-1', 'gradient-2', 'gradient-3', 'gradient-4'];
 
   useEffect(() => {
     // Create an AbortController to handle cleanup
@@ -18,7 +20,7 @@ export default function HomeContent({ onProductClick }) {
     const fetchProducts = async () => {
       try {
         console.log("Fetching products...");
-        const data = await getProducts({ signal }); // Pass the signal to the fetch function
+        const data = await getProducts({ signal });
 
         console.log("Products fetched:", data);
         if (!Array.isArray(data)) {
@@ -52,13 +54,19 @@ export default function HomeContent({ onProductClick }) {
 
   return (
     <div className="home-content">
-      {products.map((product) => (
+      <div className="overlay-bar">Hello</div>
+      {products.map((product, index) => (
         <div key={product.id} className="product-container">
+          <div className={`product-bg ${gradientClasses[index % gradientClasses.length]}`}>
           <div className="flex">
-            <img src={product.image} alt={product.name} className="product-image" />
+          
+            <Link to={`/product/${product.id}`}>
+            <img src={product.image} alt={product.name} className="product-image" /></Link>
+          </div>
           </div>
           <div className="product-name">
-            <a onClick={() => onProductClick && onProductClick(product)}>{product.name}</a>
+            <Link to={`/product/${product.id}`}>
+            <a>{product.name}</a></Link>
           </div>
           <div className="product-price">{currency.format(product.price)}</div>
           <div className="product-description">{product.description}</div>
