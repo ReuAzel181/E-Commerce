@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import "remixicon/fonts/remixicon.css";
@@ -7,12 +6,12 @@ import "./index.scss";
 import Footer from "home/Footer";
 import Header from "home/Header";
 
-import PDPContent from "pdp/PDPContent"
+import PDPContent from "pdp/PDPContent";
 import HomeContent from "home/HomeContent"; 
 import CartContent from "cart/CartContent";
 import ErrorBoundary from "./ErrorBoundary";
 
-export default function MainLayout () {
+export default function MainLayout() {
     return (
         <Router>
             <div className="container-main">
@@ -32,10 +31,3 @@ export default function MainLayout () {
         </Router>
     );
 }
-
-const rootElement = document.getElementById("app")
-if (!rootElement) throw new Error("Failed to find the root element")
-
-const root = ReactDOM.createRoot(rootElement)
-
-root.render(<MainLayout />)

@@ -79,13 +79,19 @@ export const clearCart = () =>
         
 
     export function useLoggedIn() {
-        const [loggedIn, setLoggedIn] = useState(!!jwt.value);
-        useEffect(() => {
-        setLoggedIn(!!jwt.value);
-        // return jwt.subscribe(() => {
-        return jwt.subscribe(() => {
-            setLoggedIn(!!jwt.value);
+    const [loggedIn, setLoggedIn] = useState(!!jwt.value);
+
+    useEffect(() => {
+        setLoggedIn(!!jwt.value); 
+        const subscription = jwt.subscribe(() => {
+            setLoggedIn(!!jwt.value); 
         });
-    },[]);
+
+        return () => {
+            subscription.unsubscribe(); 
+        };
+    }, []);
+
     return loggedIn;
-    }
+}
+
