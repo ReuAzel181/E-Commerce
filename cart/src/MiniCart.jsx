@@ -16,10 +16,16 @@ export default function MiniCart() {
 
   useEffect(() => {
     setItems(cart.value?.cartItems);
-    return cart.subscribe((c) => {
+    const subscription = cart.subscribe((c) => {
       setItems(c?.cartItems);
     });
+    return () => {
+      if (subscription && typeof subscription.unsubscribe === "function") {
+        subscription.unsubscribe();
+      }
+    };
   }, []);
+  
 
   if (!items) return null;
 
