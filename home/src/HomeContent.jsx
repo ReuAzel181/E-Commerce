@@ -10,7 +10,7 @@ export default function HomeContent({ onProductClick }) {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const gradientClasses = ['gradient-1', 'gradient-2', 'gradient-3', 'gradient-4'];
+  const gradientClasses = ['gradient-1', 'gradient-2', 'gradient-3', 'gradient-4', 'gradient-5', 'gradient-6'];
 
   useEffect(() => {
     // Create an AbortController to handle cleanup
@@ -54,35 +54,72 @@ export default function HomeContent({ onProductClick }) {
 
   return (
     <div className="home-content">
-      <div className="overlay-bar">Hello</div>
-      {products.map((product, index) => (
-        <div key={product.id} className="product-container">
-          <div className={`product-bg ${gradientClasses[index % gradientClasses.length]}`}>
-          <div className="flex">
-          
-            <Link to={`/product/${product.id}`}>
-            <img src={product.image} alt={product.name} className="product-image" /></Link>
-          </div>
-          </div>
-          <div className="product-name">
-            <Link to={`/product/${product.id}`}>
-            <a>{product.name}</a></Link>
-          </div>
-          <div className="product-price">{currency.format(product.price)}</div>
-          <div className="product-description">{product.description}</div>
-          {loggedIn && (
-            <div className="text-right mt-2">
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-weight"
-                onClick={() => addToCart(product.id)}
-                id={`addtocart_${product.id}`}
-              >
-                Add to Cart
-              </button>
-            </div>
-          )}
+      <div className="overlay-bar">
+        <div className="filter-category">
+          <button>Newest</button>
+          <button>Popular</button>
+          <button>Trending</button>
+          <button>Best Selling</button>
+          <button className="filter">Filter <img src="http://localhost:8080/filter.png" alt="filter" /></button>
         </div>
+      </div>
+      {products.map((product, index) => (
+        <ProductCard key={product.id} product={product} gradientClass={gradientClasses[index % gradientClasses.length]} loggedIn={loggedIn} />
       ))}
     </div>
+  );
+}
+
+function ProductCard({ product, gradientClass, loggedIn }) {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleFavoriteClick = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+  return (
+    <div className="product-container">
+      <div className={`product-bg ${gradientClass}`}>
+        <div className="favorite">
+          <button onClick={handleFavoriteClick}>
+            <img src={isFavorite ? "http://localhost:8080/favorite-active.png" : "http://localhost:8080/favorite-inactive.png"} alt="favorite" />
+          </button>
+        </div>
+        <div className="flex">
+          <Link to={`/product/${product.id}`}>
+            <div className="">
+              <img src={product.image} alt={product.name} className="product-image" />
+            </div>
+            
+          </Link>
+        </div>
+      </div>
+
+      <div className="product-name">
+        <Link to={`/product/${product.id}`}>
+          <a>{product.name}</a>
+        </Link>
+      </div>
+
+
+      <div className="product-description">{product.description}</div>
+
+      <div className="product-pa">
+        <div className="product-price">{currency.format(product.price)}</div>
+
+        {loggedIn && (
+        <div className="product-add">
+          <button
+            onClick={() => addToCart(product.id)}
+            id={`addtocart_${product.id}`}>
+            <img src="http://localhost:8080/add.png" alt="add" />
+          </button>
+        </div>
+        )}
+      </div>
+
+
+      </div>
+    
   );
 }

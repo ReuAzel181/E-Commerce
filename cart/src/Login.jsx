@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { login, useLoggedIn } from "./cart";
+import "./login.scss"; // Import the new CSS file
 
 export default function Login() {
     const loggedIn = useLoggedIn();
@@ -29,37 +30,26 @@ export default function Login() {
     return (
         <>
             <span onClick={() => setShowLogin(!showLogin)}>
-                <i className="ri-fingerprint-line text-2xl" id="showLogin"></i>
+                <img src="http://localhost:8080/profile.png" alt="profile" id="showLogin"/>
             </span>
             {showLogin && (
-                <div
-                    className="absolute p-5 border-4 border-blue-800 p-2 rounded-md w-full"
-                    style={{
-                        top: "50%",
-                        left: "50%",
-                        width: "500px",
-                        transform: "translate(-50%, -50%)",
-                        position: "fixed",
-                    }}
-                >
+                <div className="login-modal">
                     <input
                         type="text"
                         placeholder="Username"
                         value={username}
                         onChange={(evt) => setUsername(evt.target.value)}
-                        className="border text-sm border-gray-400 p-2 rounded-md w-full"
-                        style={{ color: "black" }}
+                        className="login-input"
                     />
                     <input
                         type="password"
                         value={password}
                         onChange={(evt) => setPassword(evt.target.value)}
-                        className="border text-sm border-gray-400 p-2 rounded-md w-full mt-2"
-                        style={{ color: "black" }}
+                        className="login-input mt-2"
                     />
-                    {error && <div className="text-red-500 text-sm mt-2">{error}</div>} {/* Display error */}
+                    {error && <div className="login-error">{error}</div>} {/* Display error */}
                     <button
-                        className="bg-green-900 text-white py-2 px-5 rounded-md mt-2"
+                        className="login-button"
                         onClick={handleLogin}
                         id="loginbtn"
                         disabled={loading} // Disable button while loading

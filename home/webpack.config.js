@@ -85,6 +85,7 @@ module.exports = (_, argv) => ({
         addtocart: "addtocart@http://localhost:3003/remoteEntry.js",
       },
       exposes: {
+        "./login": "./src/login.scss",
         "./Header" : "./src/Header.jsx",
         "./Footer" : "./src/Footer.jsx",
         "./products" : "./src/products.js",

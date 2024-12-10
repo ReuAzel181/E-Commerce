@@ -21,12 +21,19 @@ body {
   margin: 0;
   background-color: var(--secondary-color);
   color: var(--text-color);
+  overflow-y: scroll; 
+  height: 100vh; 
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .container-main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
 }
 
 .header {
@@ -41,7 +48,7 @@ body {
   font-weight: bold; 
   color: var(--tc2);
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   //box-shadow: var(--box-shadow);
 }
 
@@ -49,13 +56,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bolder; 
+  font-size: 2.5rem;
+  font-weight: bolder;
 }
 
 .header-logo-text{
   display: flex;
   grid-template-columns: repeat(2, 1fr);
-  gap: .5rem;
   margin-left: 20px;
 }
 
@@ -65,7 +72,7 @@ body {
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 6rem;
+  gap: 1rem;
   padding: 20px;
   padding-left: 130px;
   padding-right: 130px;
@@ -73,19 +80,22 @@ body {
 
 .product-container {
   display: flex;     
-  position: relative;                  
+  position: relative;              
   flex-direction: column;                  
   align-items: center;                    
   background-color: var(--pbg);
   padding: 25px;
-  height: 550px;
+  height: 470px;
+  width: 350px;
+  margin-top: 110px;
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+              0 6px 20px rgba(0, 0, 0, 0.1); 
   transition: transform 0.2s;
 }
 
 .product-container:hover {
-  transform: translateY(-5px);
+  transform: scale(1.01); 
 }
 
 .product-image {
@@ -103,15 +113,10 @@ body {
   padding: 10px 0;
 }
 
-.product-description {
-  font-size: 1rem;
-  color: var(--text-color);
-  padding: 10px 0;
-}
 
 .logo img {
   display: block;
-  width: 150px;
+  width: 140px;
   height: auto;
   object-fit: contain;
 }
@@ -120,8 +125,8 @@ body {
   display: flex;
   position: sticky;
   width: 100%;
-  height: 90px;
-  padding: 10px 20px;
+  height: 50px;
+  padding: 10px 30px;
   bottom: 0;
   font-size: 1.875rem; 
   font-weight: bold; 
@@ -149,12 +154,12 @@ body {
 #footer2 {
   margin-left: auto;
   right: 100px;
-  position: absolute;
+  position: static;
+  justify-content: flex-end;
 }
 
 .footer-text {
-  font-size: 1.3rem;
-  font-weight: lighter;
+  font-size: .9rem;
   color: #ffffff;
   text-decoration: none;
 }

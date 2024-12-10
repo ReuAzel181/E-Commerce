@@ -73,7 +73,7 @@ export interface Product {
       },
       {
         id: 10,
-        name: 'Gold and Silver Gears',
+        name: 'Gold and Silver',
         price: 9.99,
         description: 'Sleek and beautiful, this spinner is so fast.',
         image: 'http://localhost:8080/fidget-10.png',
@@ -82,11 +82,21 @@ export interface Product {
       },
       {
         id: 11,
-        name: 'Gears Within Gears',
+        name: 'Gears w Gears',
         price: 12.99,
         description:
           'So many gears and so little time. You will be endlessly fascinated by this spinner.',
         image: 'http://localhost:8080/fidget-11.png',
+        longDescription:
+          "Did you know that a standard gear train has 3 gears? It is true! And, we've given you all three in this delightful fidget spinner. Spin away and watch your mind be blown away by the seemingly endless and rapid movement of these three little clockwork wheels.",
+      },
+      {
+      id: 12,
+        name: 'Sir Ace',
+        price: 999999999.99,
+        description:
+          'Poging Instructor ng SLTCFI',
+        image: 'http://localhost:8080/ace.jpg',
         longDescription:
           "Did you know that a standard gear train has 3 gears? It is true! And, we've given you all three in this delightful fidget spinner. Spin away and watch your mind be blown away by the seemingly endless and rapid movement of these three little clockwork wheels.",
       },
