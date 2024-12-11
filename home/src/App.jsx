@@ -1,23 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom/client"; // Ensure correct API for React 18
 
+import "remixicon/fonts/remixicon.css";
 import "./index.scss";
 
-import Footer from "./Footer";
-import Header from "./Header";
+import MainLayout from "home/MainLayout";
 
-const App = () => (
-  <div className="text-3xl mx-auto max-w-6xl">
-    <Header />
-      <div className="my-10">
-        Home Page Content
-      </div>
-    <Footer />
-  </div>
-);
-const rootElement = document.getElementById("app")
-if (!rootElement) throw new Error("Failed to find the root element")
+// Get the root DOM element
+const rootElement = document.getElementById("app");
+if (!rootElement) {
+    throw new Error("Failed to find the root element");
+}
 
-const root = ReactDOM.createRoot(rootElement)
+// Create a React root (React 18 API)
+const root = ReactDOM.createRoot(rootElement);
 
-root.render(<App />)
+// Render the MainLayout component
+root.render(<MainLayout />);

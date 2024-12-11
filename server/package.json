@@ -26,15 +26,20 @@
     "@nestjs/jwt": "^10.2.0",
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.4.11",
-    "@nestjs/serve-static": "^2.2.2",
+    "@nestjs/serve-static": "^4.0.2",
     "class-validator": "^0.14.1",
+    "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "passport": "^0.7.0",
-    "passport-jwt": "^4.0.0",
+    "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.0.2",
     "reflect-metadata": "^0.1.13",
+    "remixicon": "^4.5.0",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.4.8",
@@ -58,7 +63,10 @@
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
     "tsconfig-paths": "^3.10.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.5.5",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   },
   "jest": {
     "moduleFileExtensions": [

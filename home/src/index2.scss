@@ -1,0 +1,301 @@
+.my-10 {
+    flex: 1;
+}
+
+.background-container {
+    position: fixed; 
+    top: 0;
+    right: 0;
+    width: 100%; 
+    height: 100%; 
+    z-index: -1; 
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-start; 
+}
+
+.background-container2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: auto; 
+    height: auto;
+    z-index: -2;
+}
+
+.foot-banner {
+    
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;   
+}
+
+.name-credit {
+    font-size: .9rem;
+    font-weight: 100;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-link {
+    flex: 1;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: #2e2e2e !important;
+}
+
+.nav-link .text {
+    justify-content: center;
+}
+
+.nav-link .icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.product-bg {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+    height: 250px; /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+.gradient-1 {
+    background: radial-gradient(circle, rgba(77, 133, 223, 0) 0%, #A1CDEF 100%);
+}
+
+.gradient-2 {
+    background: radial-gradient(circle, rgba(255, 0, 0, 0) 0%, #A9A1EF 100%);
+}
+
+.gradient-3 {
+    background: radial-gradient(circle, rgba(0, 255, 0, 0) 0%, #A1EFEB 100%);
+}
+
+.gradient-4 {
+    background: radial-gradient(circle, rgba(0, 0, 255, 0) 0%, #A1CDEF 100%);
+}
+
+.gradient-5 {
+    background: radial-gradient(circle, rgba(0, 0, 255, 0) 0%, #d4efa1 100%);
+}
+
+.gradient-6 {
+    background: radial-gradient(circle, rgba(0, 0, 255, 0) 0%, #efa1c8 100%);
+}
+
+
+.flex-end {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-box {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 120px;
+    gap: 10px;
+    right: 60px;
+    width: 10vw; /* 20% of the viewport width */
+    height: 8vh; /* 10% of the viewport height */
+    background-color: #202A36; /* Adjust as needed */
+    border-radius: 20px; /* Adjust as needed */
+    padding: 10px; /* Adjust as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust as needed */
+    z-index: 1000; /* Ensure it is above other elements */
+}
+
+.chat-box .chat-text {
+    color: white;
+    font-size: 1.6rem;
+}
+
+.chat-box img {
+    width: 20px;
+    cursor: pointer;
+}
+
+.overlay-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    margin-left: 130px; /* Match .home-content padding-left */
+    margin-right: 130px; /* Match .home-content padding-right */
+    background-color: #202A36;
+    color: white;
+    overflow: hidden;
+    border-radius: 10px; /* Rounded top corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Ensure it's above other elements */
+    display: flex;
+    justify-content: space-around; /* Space the buttons evenly */
+    align-items: center;
+    text-align: center;
+    padding: 10px; /* Add some padding inside the bar */
+}
+
+
+.filter-category {
+    position: absolute;
+    padding-left: 70px;
+    left: 0;
+    font-size: 1.3rem;
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+.filter-category .filter {
+    cursor: pointer;
+    padding-right: 50px; 
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: row;
+    
+}
+
+.product-bg .favorite {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.product-bg .favorite img {
+    width: 35px;
+    transition: transform 0.3s ease; 
+}
+
+.product-bg .favorite img:hover {
+    transform: scale(1.2); 
+}
+
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-parent {
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.vertical-line {
+    color: #ccc; 
+    font-size: 2rem; 
+    line-height: 2rem; 
+    margin: 0 10px; 
+}
+
+.product-name {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #2e2e2e;
+    justify-content: flex-start;
+    align-self: flex-start;
+    position: static;
+    padding-bottom: 0px;
+}
+
+.product-pa {
+    width: 100%;
+    display: flex; 
+    padding-top: 10px;
+    justify-content: space-between; /* Space between price and image */
+    align-items: center; /* Vertically center the items */
+}
+
+.product-price {
+    font-size: 2.3rem;
+    font-weight: bolder;
+    color: #2C8BD4;
+    align-self: flex-start;
+    margin-right: 10px; /* Add margin if you want some space between price and image */
+}
+
+.product-add {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@keyframes rotate {
+    0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+.product-add:hover {
+transform: scale(1.02) rotate(360deg);
+transition: transform 0.5s ease-in-out; /* Add transition for smooth effect */
+}
+
+.product-description {
+    font-size: 1rem;
+    font-weight: lighter;
+    color: #7d7d7d;
+    justify-content: flex-start;
+    align-self: flex-start;
+    position: static;
+    /* Ganto lang pala */
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+    overflow: hidden;    /* Hide the overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    max-width: 35ch; /* Restrict width to approximately 25 characters */
+}
+
+.user-profile {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+
+.user-photo {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%; 
+}
+
+.item-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.6rem; 
+    background-color: red; 
+    color: white; 
+    border-radius: 50%; 
+    width: 1.3rem; /* Set equal width and height */
+    height: 1.3rem; /* Set equal width and height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(50%, -50%);
+}
