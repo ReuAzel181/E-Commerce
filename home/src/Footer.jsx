@@ -10,7 +10,7 @@ export default function Footer() {
                         <div className=""><img src="http://localhost:8080/figma.png" alt="bg1" /></div>
                   </div>
 
-                  <div className="footer-credit" id="footer2">
+                  <div className="footer-connect">
                         <div className="footer-text">Connect with us:</div>
                         <div className=""><a href="https://www.facebook.com/share/1DfJAvSzvs/"  target="_blank">
                         <img src="http://localhost:8080/fb.png" alt="facebook" /></a></div>

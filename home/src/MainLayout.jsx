@@ -25,7 +25,7 @@ export default function MainLayout() {
             </div>
             <div className="container-main">
                 <Header />
-                <div className="my-10">
+                <div className="my-10" style={{ marginTop: 0 }}>
                     <ErrorBoundary>
                         <Routes>
                             <Route path="/" element={<HomeContent />} />

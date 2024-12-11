@@ -5,17 +5,34 @@ import "./index.scss";
 
 
 
-export default function MiniCart() {
+export default function MiniCart({ userId }) {
     const [items, setItems] = useState(undefined);
     const [showCart, setShowCart] = useState(false);
+    const [user, setUser] = useState(null);
+    const defaultUserPhoto = "http://localhost:8080/default-user.png";
 
-    // useEffect(() => {
-    //     setItems(cart.value?.cartItems);
-    //     return cart.subscribe((c) => {
-    //         setItems(c?.cartItems);
-    //     });
-    // }, []);
-
+    useEffect(() => {
+        console.log("userId passed to MiniCart:", userId); // Add this log
+        async function fetchUser() {
+            try {
+                const usersService = new UsersService();
+                const userData = await usersService.findOneById(userId);
+                if (!userData) {
+                    console.error("User not found");
+                    return;
+                }
+                setUser(userData);
+            } catch (error) {
+                console.error("Error fetching user:", error);
+            }
+        }
+        if (userId) {
+            fetchUser();
+        }
+    }, [userId]);
+    
+    
+    
     useEffect(() => {
         setItems(cart.value?.cartItems);
     
@@ -42,8 +59,15 @@ export default function MiniCart() {
     return (
         <>
             <span onClick={() => setShowCart (!showCart)} id="showcart_span">
-                <i className="ri-shopping-cart-2-fill text-2xl" id="showcart"></i>
-                {items.length}
+                <div className="user-profile">
+                    {console.log("User data:", user)} 
+                        <img
+                            src={user && user.userphoto ? user.userphoto : defaultUserPhoto}
+                            alt={user && user.username ? user.username : "Default User"}
+                            className="user-photo"
+                        />
+                        <div className="item-count">{items.length}</div>
+                </div>
             </span>
             {showCart && (
                 <>

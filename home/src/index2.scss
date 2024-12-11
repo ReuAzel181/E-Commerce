@@ -23,14 +23,6 @@
     z-index: -2;
 }
 
-.footer-credit {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 10px
-}
-
 .foot-banner {
     
     display: flex;
@@ -121,8 +113,8 @@
     bottom: 120px;
     gap: 10px;
     right: 60px;
-    width: 170px;
-    height: 80px;
+    width: 10vw; /* 20% of the viewport width */
+    height: 8vh; /* 10% of the viewport height */
     background-color: #202A36; /* Adjust as needed */
     border-radius: 20px; /* Adjust as needed */
     padding: 10px; /* Adjust as needed */
@@ -150,6 +142,7 @@
     margin-right: 130px; /* Match .home-content padding-right */
     background-color: #202A36;
     color: white;
+    overflow: hidden;
     border-radius: 10px; /* Rounded top corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 2; /* Ensure it's above other elements */
@@ -278,3 +271,31 @@ transition: transform 0.5s ease-in-out; /* Add transition for smooth effect */
     max-width: 35ch; /* Restrict width to approximately 25 characters */
 }
 
+.user-profile {
+    position: relative;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+
+.user-photo {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%; 
+}
+
+.item-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.6rem; 
+    background-color: red; 
+    color: white; 
+    border-radius: 50%; 
+    width: 1.3rem; /* Set equal width and height */
+    height: 1.3rem; /* Set equal width and height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(50%, -50%);
+}

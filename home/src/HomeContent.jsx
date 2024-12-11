@@ -63,9 +63,11 @@ export default function HomeContent({ onProductClick }) {
           <button className="filter">Filter <img src="http://localhost:8080/filter.png" alt="filter" /></button>
         </div>
       </div>
+      <div className="product-grid">
       {products.map((product, index) => (
         <ProductCard key={product.id} product={product} gradientClass={gradientClasses[index % gradientClasses.length]} loggedIn={loggedIn} />
       ))}
+    </div>
     </div>
   );
 }
