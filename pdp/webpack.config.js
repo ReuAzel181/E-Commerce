@@ -18,6 +18,7 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3001,
+    hot: false,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -55,6 +56,13 @@ module.exports = (_, argv) => ({
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ]
+          }
         },
       },
     ],
@@ -66,17 +74,25 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {
         home: "home@http://localhost:3000/remoteEntry.js",
+        pdp: "pdp@http://localhost:3001/remoteEntry.js",
+        cart: "cart@http://localhost:3002/remoteEntry.js",
+        addtocart: "addtocart@http://localhost:3003/remoteEntry.js",
       },
-      exposes: {},
+      exposes: {
+        "./PDPContent": "./src/PDPContent.jsx",
+        './index.scss': './src/index.scss',
+      },
       shared: {
         ...deps,
         react: {
           singleton: true,
+          strictVersion: true,
           requiredVersion: deps.react,
         },
-        "react-dom": {
+        "react-router-dom": {
           singleton: true,
-          requiredVersion: deps["react-dom"],
+          strictVersion: true,
+          requiredVersion: deps["react-router-dom"],
         },
       },
     }),

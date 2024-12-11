@@ -18,8 +18,12 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3000,
+    hot: true,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
+    client: {
+      overlay: false,
+    },
     onListening: function (devServer) {
       const port = devServer.server.address().port
 
@@ -34,8 +38,11 @@ module.exports = (_, argv) => ({
           }
         })
       })
-    }
+    },
+
   },
+
+  devtool: argv.mode === 'development' ? 'source-map' : false,
 
   module: {
     rules: [
@@ -47,7 +54,7 @@ module.exports = (_, argv) => ({
         },
       },
       {
-        test: /\.(css|s[ac]ss)$/i,
+        test: /\.(scss|png|css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
@@ -55,6 +62,13 @@ module.exports = (_, argv) => ({
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ]
+          }
         },
       },
     ],
@@ -64,20 +78,30 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "home",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        pdp: "pdp@http://localhost:3001/remoteEntry.js",
+        home: "home@http://localhost:3000/remoteEntry.js",
+        cart: "cart@http://localhost:3002/remoteEntry.js",
+        addtocart: "addtocart@http://localhost:3003/remoteEntry.js",
+      },
       exposes: {
-        "./Header" : "./src/Header",
-        "./Footer" : "./src/Footer",
+        "./Header" : "./src/Header.jsx",
+        "./Footer" : "./src/Footer.jsx",
+        "./products" : "./src/products.js",
+        "./HomeContent" : "./src/HomeContent.jsx",
+        "./MainLayout": "./src/MainLayout.jsx",
       },
       shared: {
         ...deps,
         react: {
           singleton: true,
+          strictVersion: true,
           requiredVersion: deps.react,
         },
-        "react-dom": {
+        "react-router-dom": {
           singleton: true,
-          requiredVersion: deps["react-dom"],
+          strictVersion: true,
+          requiredVersion: deps["react-router-dom"],
         },
       },
     }),

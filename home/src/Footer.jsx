@@ -4,8 +4,22 @@ import "./index.scss";
 
 export default function Footer() {
       return (
-            <div className="p-5 bg-blue-500 text-white text-3xl font-bold">
-                  Only the Best Spinner
+            <div className="footer">
+                  <div className="footer-credit">
+                        <div className="name-credit">@BrandName 2024 | Powered by Figma</div>
+                        <div className=""><img src="http://localhost:8080/figma.png" alt="bg1" /></div>
+                  </div>
+
+                  <div className="footer-connect">
+                        <div className="footer-text">Connect with us:</div>
+                        <div className=""><a href="https://www.facebook.com/share/1DfJAvSzvs/"  target="_blank">
+                        <img src="http://localhost:8080/fb.png" alt="facebook" /></a></div>
+                        <div className=""><img src="http://localhost:8080/twitter.png" alt="twitter" /></div>
+                        <div className=""><img src="http://localhost:8080/youtube.png" alt="youtube" /></div>
+                  </div>
+
+
+                  
             </div>
       );
 }
