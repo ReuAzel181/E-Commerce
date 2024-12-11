@@ -3,7 +3,7 @@
 A React-based microfrontend module designed to integrate seamlessly into e-commerce platforms. It provides a user-friendly, responsive, and feature-rich shopping cart experience.
 
 <div style="text-align: center;">
-    <img src="https://github.com/ReuAzel181/E-Commerce/blob/feature/pdp/readme-asset(s)/web.png" alt="UI" width="600" height="400">
+    <img src="https://github.com/ReuAzel181/E-Commerce/blob/feature/pdp/readme-asset(s)/web.png" alt="UI" width="900" height="400">
 </div>
 
 ## Features
