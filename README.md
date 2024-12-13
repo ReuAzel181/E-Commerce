@@ -23,8 +23,8 @@ A React-based microfrontend module designed to integrate seamlessly into e-comme
 - **🖼️ Overlay Cart**: Displays detailed cart information in a non-intrusive overlay.
 
 ## Reference
-    - HIGH FIDELITY: https://www.figma.com/design/Nte556OLMf4xylBsW3Rtiy/HIFI---Ecommerce?node-id=0-1&t=Rr1gSpqm2Us9MJDn-1 
-    - If you got an error. The solution might be here: https://www.figma.com/board/HHzQRFoPcm5APkCCtcPgZc/MCFE---Ecommerce?node-id=0-1&t=QrIMOykMjJSJjVp2-1
+**HIGH FIDELITY:** https://www.figma.com/design/Nte556OLMf4xylBsW3Rtiy/HIFI---Ecommerce?node-id=0-1&t=Rr1gSpqm2Us9MJDn-1 
+**If you got an error. The solution might be here:** https://www.figma.com/board/HHzQRFoPcm5APkCCtcPgZc/MCFE---Ecommerce?node-id=0-1&t=QrIMOykMjJSJjVp2-1
 
 ## Installation
 
